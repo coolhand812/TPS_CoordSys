@@ -10,37 +10,22 @@
                             $firstName = SanitizeUserInput($firstName);
                         }
                         if(isset($_POST["SName"])){
-                            $SecondName = $_POST["SName"];
-                            $SecondName = SanitizeUserInput($SecondName);
+                            $secondName = $_POST["SName"];
+                            $secondName = SanitizeUserInput($secondName);
                         }
-                        if(isset($_POST["FName"])){
-                            $firstName = $_POST["FName"];
-                            // echo "first name BEFORE sanitizing: $firstName<br>";
-                            // Sanitize first name
-                            $firstName = SanitizeUserInput($firstName);
-                            // echo "first name AFTER sanitizing: $firstName<br>";
+                        if(isset($_POST["PatLName"])){
+                            $patLName = $_POST["PatLName"];
+                            $patLName = SanitizeUserInput($patLName);
                         }
-                        if(isset($_POST["LName"])){
-                            $lastName = $_POST["LName"];
-                            // echo "last name BEFORE sanitizing: $lastName<br>";
-                            // Sanitize last name
-                            $lastName = SanitizeUserInput($lastName);
-                            // echo "last name AFTER sanitizing: $lastName<br>";
+                        if(isset($_POST["MatLName"])){
+                            $matLName = $_POST["MatLName"];
+                            $matLName = SanitizeUserInput($matLName);
                         }
-                        if(isset($_POST["FName"])){
-                            $firstName = $_POST["FName"];
-                            // echo "first name BEFORE sanitizing: $firstName<br>";
-                            // Sanitize first name
-                            $firstName = SanitizeUserInput($firstName);
-                            // echo "first name AFTER sanitizing: $firstName<br>";
+                        if(isset($_POST["start_date"])){
+                            $startdate = $_POST["start_date"];
+                            $startdate = SanitizeUserInput($startdate);
                         }
-                        if(isset($_POST["LName"])){
-                            $lastName = $_POST["LName"];
-                            // echo "last name BEFORE sanitizing: $lastName<br>";
-                            // Sanitize last name
-                            $lastName = SanitizeUserInput($lastName);
-                            // echo "last name AFTER sanitizing: $lastName<br>";
-                        }
+                        
                     } /* end of server request method */
 				
 				
