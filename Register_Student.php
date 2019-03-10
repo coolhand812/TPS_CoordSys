@@ -1,6 +1,18 @@
 <?php
                     if ($_SERVER["REQUEST_METHOD"] == "POST")
                     {
+                        if(isset($_POST["Student_ID"])){
+                            $Student_ID = $_POST["Student_ID"];
+                            $Student_ID = SanitizeUserInput($Student_ID);
+                        }
+                        if(isset($_POST["FName"])){
+                            $firstName = $_POST["FName"];
+                            $firstName = SanitizeUserInput($firstName);
+                        }
+                        if(isset($_POST["SName"])){
+                            $SecondName = $_POST["SName"];
+                            $SecondName = SanitizeUserInput($SecondName);
+                        }
                         if(isset($_POST["FName"])){
                             $firstName = $_POST["FName"];
                             // echo "first name BEFORE sanitizing: $firstName<br>";
@@ -15,8 +27,21 @@
                             $lastName = SanitizeUserInput($lastName);
                             // echo "last name AFTER sanitizing: $lastName<br>";
                         }
-                        
-                    }
+                        if(isset($_POST["FName"])){
+                            $firstName = $_POST["FName"];
+                            // echo "first name BEFORE sanitizing: $firstName<br>";
+                            // Sanitize first name
+                            $firstName = SanitizeUserInput($firstName);
+                            // echo "first name AFTER sanitizing: $firstName<br>";
+                        }
+                        if(isset($_POST["LName"])){
+                            $lastName = $_POST["LName"];
+                            // echo "last name BEFORE sanitizing: $lastName<br>";
+                            // Sanitize last name
+                            $lastName = SanitizeUserInput($lastName);
+                            // echo "last name AFTER sanitizing: $lastName<br>";
+                        }
+                    } /* end of server request method */
 				
 				
                     /* Good for troubleshooting ****************
