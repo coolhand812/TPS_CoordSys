@@ -15,24 +15,7 @@
                             $lastName = SanitizeUserInput($lastName);
                             // echo "last name AFTER sanitizing: $lastName<br>";
                         }
-                        if(isset($_POST["ZipCode"])){
-                            $zipCode = $_POST["ZipCode"];
-                        }
-                        if(isset($_POST["email"])){
-                            $userEmail = $_POST["email"];
-                            // echo "email BEFORE sanitizing: $$userEmail<br>";
-                            $userEmail = filter_var($userEmail, FILTER_SANITIZE_EMAIL);
-                            // echo "email AFTER sanitizing: $$userEmail<br>";
-                        }
-                        if(isset($_POST["PhoneNumber"])){
-                            $phoneNumber = $_POST["PhoneNumber"];
-                        }
-                        if(isset($_POST["psw"])){
-                            $userPassword = $_POST["psw"];
-                        }
-                        if(isset($_POST["psw-repeat"])){
-                            $user2Password = $_POST["psw-repeat"];
-                        }
+                        
                     }
 				
 				
