@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<title>Administrator Menu</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+
+	<body>
+
+    <div id="header">
+				<h1>UASLP / CityU of Seattle</h1>
+		<div id="image1">
+			<img src="UASLP_logo.png" alt="UASLP logo" width="90" height="110">
+		</div>
+		<div id="image2">
+			<img src="CityU_logo.png" alt="CityU logo" width="250" height="110">
+		</div>
+	</div>
+
+		<div id="container">
+
+			<div id="content">
+				<div id="nav">
+					<h2>Navigation</h2>
+					<ul>
+						<li><a href="#">Add Student</a></li>
+						<li><a href="#">Student Lookup</a></li>
+						<li><a href="#">Monthly Faculty Report</a></li>
+						<li><a href="#">Annual Faculty Report</a></li>
+						<li><a href="#">Modify THIS account</a></li>
+						<li><a href="#">Modify User Account</a></li>
+						<li><a href="#">Logout</a></li>
+						<li><a href="mailto:coolhand812@cityuniversity.edu; eri.ru27c.a@gmail.com; xchtlrdz@gmail.com">Contacts</a></li>
+					</ul>
+				</div>
+				
+				<div id="header2">
+					<h2>Add New Student</h2>
+				</div>
+				
+				<div id="main">
+                    <p>Please fill in this form to create an account.</p>
+                    
+                    <form class= "index-form" action="Register_Student.php" method="post">
+                        <div class="form-group">    
+                            <label>Student ID: </label>
+                            <input type="int" name="Student_ID">
+                        </div>
+                        <div class="form-group">
+                            <label>First Name: </label>
+                            <input type="text" name="FName">	
+                        </div>
+                        <div class="form-group">
+                            <label>Second Name: </label>
+                            <input type="text" name="SName">	
+                        </div>
+                        <div class="form-group">
+                            <label>Paternal Last Name: </label>
+                            <input type="text" name="PLName">	
+                        </div>
+                        <div class="form-group">
+                            <label>Maternal Last Name: </label>
+                            <input type="text" name="MLName">	
+                        </div>
+                        <div class="form-group">
+                            <label>empty: </label>
+                            <input type="text" name="SName">	
+                        </div>
+                        <div class="form-group">
+                            <label>empty: </label>
+                            <input type="text" name="SName">	
+                        </div>
+                            <br></br>
+                            <input class="button" type="submit" name="submit">
+                    </form>
+				    <p>You are accessing a UASLP Information System (IS) that is provided for UASLP-authorized use only.</p>
+				</div>
+				
+			</div> <!--main section ends here-->
+			
+			<div id="footer">
+				Copyright &copy; 2019 RUXOJO
+			</div>
+			
+		</div>
+		
+	</body>
+	
+</html>

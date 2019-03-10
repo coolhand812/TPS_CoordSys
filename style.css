@@ -1,0 +1,136 @@
+body{
+	background-color: rgb(103, 113, 247);
+	font: normal 16px Arial, Helvetica, sans-serif;
+	line-height: 1.5em;
+	margin: 0;
+}
+
+a{
+	color: rgb(119, 16, 216);
+}
+
+a:hover{
+	color:green;
+}
+
+a:active{
+	color:red;
+}
+
+a:visited{
+	color: black;
+}
+
+#container{
+	/* needs backround image*/
+	background-color: white;
+	widows: 80%;
+	margin: 5px;
+	border: 5px rgb(2, 2, 75, 0.993) solid;
+	padding: 10px;
+}
+
+.button{
+	background-color: black;
+	color: #fff;
+	padding: 10px 15px;
+	border: none;
+}
+
+#nav{
+	background-color: rgb(250, 246, 246);
+	width: 182px;
+	float: left;
+	border:1px rgb(110, 109, 109) solid;
+	font: rgb(119, 16, 216);
+	padding: 0;
+	padding-left: 20px;
+	border-radius: 15px;
+}
+
+#nav h2{
+	text-align: center;
+}
+
+#nav ul{
+	list-style-type: square; 
+	padding: 0;
+}
+
+#nav li{
+	padding-bottom: 6px;
+	border-bottom: dotted 1px #333;
+}
+
+#header{
+	background-color: rgba(2, 2, 75, 0.993);
+	text-align: center;
+	color: gold;
+	padding: 5px;
+	padding-bottom: 120px;
+}
+
+#header h1{
+	position: absolute;
+  	left: 450px;
+	top: 40px;
+	font: normal 48px Impact, Charcoal, sans-serif;  
+}
+
+#image1{
+	padding: 2px;
+	border:1px rgb(10, 10, 10) solid;
+	border-radius: 8px;
+	float: left;
+}
+
+#image2{
+	padding: 2px;
+	border:1px rgb(10, 10, 10) solid;
+	border-radius: 8px;
+	float: right;
+}
+
+h1,h2{
+	margin: 0;
+}
+
+#header2{ 
+	text-align: center;
+	color: rgb(2, 2, 75, 0.993);
+	float: center;
+}
+
+#main{
+	width: 800px;
+	float: right;
+}
+
+.index-form{
+	padding: 30px;
+}
+
+.index-form.form-group{
+	padding-bottom: 15px;
+}
+
+.index-form label{
+	display: block;
+}
+
+.index-form input[type="text"]{
+	padding: 8px;
+	width: 50%;
+}
+
+#content{  /* buffer between upper main text and header */
+	padding: 10px;
+}
+
+#footer{
+	clear: both;
+	text-align: right;
+	padding: 10px;
+	background-color: #800000;
+	color: rgb(143, 135, 135);
+}
