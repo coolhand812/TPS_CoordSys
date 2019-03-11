@@ -20,7 +20,7 @@
 			echo "<b>student ID is available</b><br>";
 		} else {
 			// do other stuff...
-			$StudentIDerr = "Please check the student ID";
+			$StudentIDerr = "Duplicate student ID found, please verify";
 		}
 		$conn->close();
 
@@ -28,36 +28,52 @@
             $Student_ID = $_POST["Student_ID"];
             $Student_ID = SanitizeUserInput($Student_ID);
         }
-        if(isset($_POST["FName"])){
-            $firstName = $_POST["FName"];
-            $firstName = SanitizeUserInput($firstName);
+
+        if (empty($_POST["FName"])){
+            $$firstNameErr = "First name is required";
+            } else {
+            // check if name only contains letters and whitespace
+            if (!preg_match("/^[a-zA-Z ]*$/",$firstName)){
+                $firstNameErr = "Only letters and white space allowed"; 
+            }elseif(isset($_POST["FName"])){
+                $firstName = $_POST["FName"];
+                $firstName = SanitizeUserInput($firstName);
+            }
         }
+
         if(isset($_POST["SName"])){
             $secondName = $_POST["SName"];
             $secondName = SanitizeUserInput($secondName);
         }
+
         if(isset($_POST["PatLName"])){
             $patLName = $_POST["PatLName"];
             $patLName = SanitizeUserInput($patLName);
         }
+
         if(isset($_POST["MatLName"])){
             $matLName = $_POST["MatLName"];
             $matLName = SanitizeUserInput($matLName);
         }
+
         if(isset($_POST["start_date"])){
             $startdate = $_POST["start_date"];
             $startdate = SanitizeUserInput($startdate);
         }
+
         if(isset($_POST["prosp_end_date"])){
             $enddate = $_POST["prosp_end_date"];
             $enddate = SanitizeUserInput($enddate);
         }
+
         if(isset($_POST["faculty_name"])){
             $facultyName = $_POST["faculty_name"];
         }
+
         if(isset($_POST["learning_prog"])){
             $learningProg = $_POST["learning_prog"];
         }
+        
         if(isset($_POST["notes"])){
             $notes = $_POST["notes"];
             $notes = SanitizeUserInput($notes);
