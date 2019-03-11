@@ -17,7 +17,7 @@
             $password=mysql_real_escape_string($db, $_POST['password']);
 
             //check connection
-            if (mysqli_connect_errno()) {
+            if (mysqli_connect_error()) {
             printf("Connect failed: %s\n", mysqli_connect_error());
             exit();
             }
