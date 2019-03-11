@@ -54,11 +54,9 @@
         }
         if(isset($_POST["faculty_name"])){
             $facultyName = $_POST["faculty_name"];
-            $facultyName = SanitizeUserInput($facultyName);
         }
         if(isset($_POST["learning_prog"])){
             $learningProg = $_POST["learning_prog"];
-            $learningProg = SanitizeUserInput($learningProg);
         }
         if(isset($_POST["notes"])){
             $notes = $_POST["notes"];
@@ -91,4 +89,38 @@
         $input = stripslashes($input);
         return $input;
     }
+
+    echo "</br></br>";
+    CreateMySQLUser($Student_ID, $patLName, $matLName, $firstName, $secondName, $startdate,
+     $enddate, $facultyName, $learningProg, $notes);
+						
+	function CreateMySQLUser($Student_ID, $patLName, $matLName, $firstName, $secondName, $startdate,
+    $enddate, $facultyName, $learningProg, $notes)
+	{
+		echo "<b>Creating Student Record: <i> $Student_ID $patLName $matLName </i></b><br>";
+		
+		//make connection	
+		$conn = new mysqli("localhost", "root", "", "ruxojo_accountsreceivable") OR die(mysql_error());
+		// Check connection
+		if (!$conn)
+		{
+			die("Connection failed: " . mysqli_connect_error());
+		}
+		echo "<b>Connection to MySQL DB established!</b> <br>";
+		$sql = "INSERT INTO Student_Table (Student_ID, last_name1, last_name2, first_name, middle_name,
+         start_date, prosp_end_date, faculty_name, learning_prog, notes)
+		VALUES ('$Student_ID', '$patLName', '$matLName', '$firstName', '$secondName', '$startdate',
+         '$enddate', '$facultyName', '$learningProg', '$notes')";
+						
+		echo "SQL Statement: $sql <br><br>";
+		if ($conn->query($sql) === TRUE)
+		{
+			echo "<b>New record created successfully</b><br>";
+		}
+		else
+		{
+			echo "Error: " . $sql . "<br>" . $conn->error;
+		}				
+		$conn->close();
+	}
 ?>
