@@ -1,6 +1,6 @@
 <?php
     // define variables and set to empty values
-    $Student_ID = $firstName = $secondName = $patLName = $matLName = "";
+    $Student_ID = $firstName = $secondName = $patLName = $matLName = $firstNameErr = "";
     $startdate = $enddate = $facultyName = $learningProg = $notes = $StudentIDerr = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -24,13 +24,20 @@
 		}
 		$conn->close();
 
-        if(isset($_POST["Student_ID"])){
-            $Student_ID = $_POST["Student_ID"];
-            $Student_ID = SanitizeUserInput($Student_ID);
+        if (empty($_POST["Student_ID"])){
+            $Student_IDErr = "Student ID is required";
+            } else {
+            // check if name only contains numbers
+            if (!preg_match("/^[1-9][0-9]{0,15}$/",$Student_ID)){
+                $Student_IDErr = "Only numbers are allowed"; 
+            }elseif(isset($_POST["Student_ID"])){
+                $Student_ID = $_POST["Student_ID"];
+                $Student_ID = SanitizeUserInput($Student_ID);
+            }
         }
 
         if (empty($_POST["FName"])){
-            $$firstNameErr = "First name is required";
+            $firstNameErr = "First name is required";
             } else {
             // check if name only contains letters and whitespace
             if (!preg_match("/^[a-zA-Z ]*$/",$firstName)){
@@ -73,7 +80,7 @@
         if(isset($_POST["learning_prog"])){
             $learningProg = $_POST["learning_prog"];
         }
-        
+
         if(isset($_POST["notes"])){
             $notes = $_POST["notes"];
             $notes = SanitizeUserInput($notes);
