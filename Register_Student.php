@@ -5,7 +5,6 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-
         //student ID validate If the Student_ID already exists
 		$conn = new mysqli("localhost", "root", "", "ruxojo_accountsreceivable") OR die(mysql_error());
 		// Check connection
