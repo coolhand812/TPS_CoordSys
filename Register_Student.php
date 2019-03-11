@@ -1,7 +1,7 @@
 <?php
     // define variables and set to empty values
     $Student_ID = $firstName = $secondName = $patLName = $matLName = $firstNameErr = "";
-    $startdate = $enddate = $facultyName = $learningProg = $notes = $StudentIDerr = "";
+    $startdate = $enddate = $facultyName = $learningProg = $notes = $Student_IDErr = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
