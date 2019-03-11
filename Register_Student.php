@@ -1,7 +1,7 @@
 <?php
     // define variables and set to empty values
     $Student_ID = $firstName = $secondName = $patLName = $matLName = "";
-    $startdate = $enddate = $facultyName = $learningProg = $notes = "";
+    $startdate = $enddate = $facultyName = $learningProg = $notes = $StudentIDerr = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -14,15 +14,14 @@
 			die("Connection failed: " . mysqli_connect_error());
 		}
 		echo "<b>Connection to MySQL DB established!</b> <br>";
-		$sql = "SELECT pet_id FROM pettable WHERE pet_id = $petID";
+		$sql = "SELECT Student_ID FROM Student_Table WHERE Student_ID = $Student_ID";
 		if($conn->query($sql) === false)
 		{
 			// row not found, do stuff...
-			echo "<b>pet ID is available</b><br>";
-			$petID = $_POST["petID"];
+			echo "<b>student ID is available</b><br>";
 		} else {
 			// do other stuff...
-			$petIDErr = "Please choose a different pet ID";
+			$StudentIDerr = "Please check the student ID";
 		}
 		$conn->close();
 
