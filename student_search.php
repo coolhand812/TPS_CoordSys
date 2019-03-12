@@ -27,8 +27,7 @@
             
             // SQL query to fetch information of registerd users and finds user match.
             // add MD5 to pswd
-            $sql = "SELECT user_level FROM admin_table WHERE user_name= '$username' AND
-             p_word= '$password'";
+            $sql = "SELECT Student_ID FROM Student_Table WHERE Student_ID= '$Student_ID'";
 
             $result = mysqli_query($db,$sql);
             $row = mysqli_fetch_row($result);
