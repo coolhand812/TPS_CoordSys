@@ -1,8 +1,8 @@
 <?php
     if (isset($_POST['submit'])) {      // Verifies submit was selected
-        if (empty($_POST['username']) || empty($_POST['password'])) {   //checks fields are not empty
-            $error = "Username or Password is invalid";
-            echo $error;    // displays message if either field is empty     
+        if (empty($_POST['Student_ID'])) {   //checks field is not empty
+            $error = "Student ID cannot be empty";
+            echo $error;    // displays message if field is empty     
         }
         else {
 
