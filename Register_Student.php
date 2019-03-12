@@ -2,6 +2,7 @@
     // define variables and set to empty values
     $Student_ID = $firstName = $secondName = $patLName = $matLName = $firstNameErr = "";
     $startdate = $enddate = $facultyName = $learningProg = $notes = $Student_IDErr = "";
+    $secondNameErr = $patLNameErr = $matLNameErr = $startdateErr = $enddateErr = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -48,35 +49,70 @@
             }
         }
 
-        if(isset($_POST["SName"])){
-            $secondName = $_POST["SName"];
-            $secondName = SanitizeUserInput($secondName);
+        if (empty($_POST["SName"])){
+            $secondNameErr = "Second name is required";
+            } else {
+            // check if name only contains letters and whitespace
+            if (!preg_match("/^[a-zA-Z ]*$/",$secondName)){
+                $secondNameErr = "Only letters and white space allowed"; 
+            }elseif(isset($_POST["SName"])){
+                $secondName = $_POST["SName"];
+                $secondName = SanitizeUserInput($secondName);
+            }
         }
 
-        if(isset($_POST["PatLName"])){
-            $patLName = $_POST["PatLName"];
-            $patLName = SanitizeUserInput($patLName);
+        if (empty($_POST["PatLName"])){
+            $patLNameErr = "Paternal last name is required";
+            } else {
+            // check if name only contains letters and whitespace
+            if (!preg_match("/^[a-zA-Z ]*$/",$patLName)){
+                $patLNameErr = "Only letters and white space allowed"; 
+            }elseif(isset($_POST["PatLName"])){
+                $patLName = $_POST["PatLName"];
+                $patLName = SanitizeUserInput($patLName);
+            }
+        }
+        
+        if (empty($_POST["MatLName"])){
+            $matLNameErr = "Maternal last name is required";
+            } else {
+            // check if name only contains letters and whitespace
+            if (!preg_match("/^[a-zA-Z ]*$/",$matLName)){
+                $matLNameErr = "Only letters and white space allowed"; 
+            }elseif(isset($_POST["MatLName"])){
+                $matLName = $_POST["MatLName"];
+                $matLName = SanitizeUserInput($matLName);
+            }
         }
 
-        if(isset($_POST["MatLName"])){
-            $matLName = $_POST["MatLName"];
-            $matLName = SanitizeUserInput($matLName);
+        if (empty($_POST["start_date"])){
+            $startdateErr = "Start date is required";
+            } else {
+            // check if date only contains numbers and fwd slash
+            if (!preg_match("/^[^0-9/]*$/",$startdate)){
+                $startdateErr = "Only numbers and fwd slash allowed"; 
+            }elseif(isset($_POST["start_date"])){
+                $startdate = $_POST["start_date"];
+            }
         }
 
-        if(isset($_POST["start_date"])){
-            $startdate = $_POST["start_date"];
-            $startdate = SanitizeUserInput($startdate);
+        if (empty($_POST["prosp_end_date"])){
+            $enddateErr = "End date is required";
+            } else {
+            // check if date only contains numbers and fwd slash
+            if (!preg_match("/^[^0-9/]*$/",$enddate)){
+                $enddateErr = "Only numbers and fwd slash allowed"; 
+            }elseif(isset($_POST["prosp_end_date"])){
+                $enddate = $_POST["prosp_end_date"];
+            }
         }
 
-        if(isset($_POST["prosp_end_date"])){
-            $enddate = $_POST["prosp_end_date"];
-            $enddate = SanitizeUserInput($enddate);
-        }
-
+        // No need to sanitize since it's a drop-down menu
         if(isset($_POST["faculty_name"])){
             $facultyName = $_POST["faculty_name"];
         }
 
+        // No need to sanitize since it's a drop-down menu
         if(isset($_POST["learning_prog"])){
             $learningProg = $_POST["learning_prog"];
         }
