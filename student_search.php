@@ -8,9 +8,6 @@
             echo $error;    // displays message if field is empty     
         }
         else {
-            // Establishing Connection with Server by passing server_name, user_id and password as a parameter
-            $db = new mysqli("localhost", "root", "", "ruxojo_accountsreceivable") OR die(mysql_error());
-
             // Define Student ID with escape variables for security
             if (!preg_match("/^[1-9][0-9]{0,15}$/",$Student_ID)){
                 $Student_IDErr = "Only numbers are allowed"; 
@@ -18,6 +15,9 @@
                 $Student_ID = $_POST["Student_ID"];
                 $Student_ID = SanitizeUserInput($Student_ID);
             }
+            
+            // Establishing Connection with Server by passing server_name, user_id and password as a parameter
+            $db = new mysqli("localhost", "root", "", "ruxojo_accountsreceivable") OR die(mysql_error());
 
             //check connection
             if (mysqli_connect_error()) {
@@ -48,8 +48,8 @@
                 }
             }
             mysqli_close($db); // Closing Connection
-        }
-    }
+        } // end else
+    } // end if verification
     else {
         echo 'post submit error';
     }
