@@ -29,8 +29,9 @@
             // add MD5 to pswd
             $sql = "SELECT Student_ID FROM Student_Table WHERE Student_ID= '$Student_ID'";
 
-            $result = mysqli_query($db,$sql);
-            $row = mysqli_fetch_row($result);
+            $result = mysqli_query($db,$sql); // gives the query result and assigns it to a variable
+            //you left off here!!
+            $row = mysqli_fetch_row($result); 
             $userlvl = $row[0];
             $count = mysqli_num_rows($result);
 
