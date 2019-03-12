@@ -1,17 +1,23 @@
 <?php
+    //variables
+    $Student_IDErr = "";
+
     if (isset($_POST['submit'])) {      // Verifies submit was selected
         if (empty($_POST['Student_ID'])) {   //checks field is not empty
             $error = "Student ID cannot be empty";
             echo $error;    // displays message if field is empty     
         }
         else {
-
             // Establishing Connection with Server by passing server_name, user_id and password as a parameter
             $db = new mysqli("localhost", "root", "", "ruxojo_accountsreceivable") OR die(mysql_error());
 
-            // Define $username and $password with escape variables for security
-            $username=mysql_real_escape_string($db, $_POST['username']);
-            $password=mysql_real_escape_string($db, $_POST['password']);
+            // Define Student ID with escape variables for security
+            if (!preg_match("/^[1-9][0-9]{0,15}$/",$Student_ID)){
+                $Student_IDErr = "Only numbers are allowed"; 
+            }elseif(isset($_POST["Student_ID"])){
+                $Student_ID = $_POST["Student_ID"];
+                $Student_ID = SanitizeUserInput($Student_ID);
+            }
 
             //check connection
             if (mysqli_connect_error()) {
