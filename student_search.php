@@ -31,6 +31,7 @@
 
             $result = mysqli_query($db,$sql); // gives the query result and assigns it to a variable
             //you left off here!!
+            // site reference http://webreference.com/programming/php/search/2.html
             $row = mysqli_fetch_row($result); 
             $userlvl = $row[0];
             $count = mysqli_num_rows($result);
