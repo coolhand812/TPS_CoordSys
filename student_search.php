@@ -21,28 +21,27 @@
             
             // SQL query to fetch information of registerd users and finds user match.
             // add MD5 to pswd
-            $sql = "SELECT student_ID FROM student_table WHERE student_ID = '$Student_ID'";
+            $sql = "SELECT student_ID FROM student_table WHERE student_ID = $Student_ID";
 
-            $result = mysqli_query($db,$sql); // gives the query result and assigns it to a variable
-            //you left off here!!
-            // site reference http://webreference.com/programming/php/search/2.html
-            $row = mysqli_fetch_row($result); 
-            $userlvl = $row[0];
-            $count = mysqli_num_rows($result);
-
-            if ($count == 0) {
-                $error = "Username or Password is invalid";
-                echo $error;    
-            } else {
-
-                if($userlvl == 1){
-                    $_SESSION['login_user']=$username; // Initializing Session
-                    header("Location: SU_Menuscreen.html");
-                }else{
-                    $_SESSION['login_user']=$username; // Initializing Session
-                    header("Location: U_Menuscreen.html");
+            if($db->query($sql) === false)
+			{
+				// row not found, do stuff...
+				echo "<b>Student ID not found</b><br>";
+			} else {
+				// row found, do other stuff...
+                $result = mysqli_query($db,$sql); // gives the query result and assigns it to a variable
+                //fetch associated array
+                while ($row = $result->fetch_assoc()) {
+                    $field1name = $row["col1"];
+                    $field2name = $row["col2"];
+                    $field3name = $row["col3"];
+                    $field4name = $row["col4"];
+                    $field5name = $row["col5"];
                 }
-            }
+             
+                /* free result set */
+                $result->free();
+			}
             mysqli_close($db); // Closing Connection
         } // end else
     } // end if verification
