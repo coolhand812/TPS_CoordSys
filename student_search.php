@@ -18,16 +18,10 @@
             
             // Establishing Connection with Server by passing server_name, user_id and password as a parameter
             $db = new mysqli("localhost", "root", "", "ruxojo_accountsreceivable") OR die(mysql_error());
-
-            //check connection
-            if (mysqli_connect_error()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
-            }
             
             // SQL query to fetch information of registerd users and finds user match.
             // add MD5 to pswd
-            $sql = "SELECT Student_ID FROM Student_Table WHERE Student_ID= '$Student_ID'";
+            $sql = "SELECT student_ID FROM student_table WHERE student_ID = '$Student_ID'";
 
             $result = mysqli_query($db,$sql); // gives the query result and assigns it to a variable
             //you left off here!!
