@@ -24,7 +24,7 @@
             $sql = "SELECT student_ID FROM student_table WHERE student_ID = $Student_ID";
 
             if($db->query($sql) === false)
-			{
+			{ 
 				// row not found, do stuff...
 				echo "<b>Student ID not found</b><br>";
 			} else {
