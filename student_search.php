@@ -32,11 +32,10 @@
                 $result = mysqli_query($db,$sql); // gives the query result and assigns it to a variable
                 //fetch associated array
                 while ($row = $result->fetch_assoc()) {
-                    $field1name = $row["col1"];
-                    $field2name = $row["col2"];
-                    $field3name = $row["col3"];
-                    $field4name = $row["col4"];
-                    $field5name = $row["col5"];
+                    echo "Student Id: " . $row["student_ID"]. " - Pat Last Name: " . $row["last_name1"] .
+                     " - Mat Last Name: " . $row["last_name2"]. " - First Name: " . $row["first_name"]. 
+                     " - Middle Name: " . $row["middle_name"]. " - Faculty Name: " . $row["faculty_name"]. 
+                     "<br>";
                 }
              
                 /* free result set */
