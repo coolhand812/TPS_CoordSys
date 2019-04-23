@@ -13,15 +13,35 @@
             $db = new mysqli("localhost", "root", "", "ruxojo_accountsreceivable") OR die(mysql_error());
 
             // Define $username and $password with escape variables for security
-            $username=mysql_real_escape_string($db, $_POST['username']);
-            $password=mysql_real_escape_string($db, $_POST['password']);
+            $username=SanitizeUserInput($db, $_POST['username']);
+            $password=SanitizeUserInput($db, $_POST['password']);
 
             //check connection
             if (mysqli_connect_error()) {
             printf("Connect failed: %s\n", mysqli_connect_error());
             exit();
             }
-            
+
+            /*****************************************************
+            * This function will sanitize user input
+            * Specifically fields like first and last name
+            * Even though these fields are restriced in size
+            * users can still enter dangerous text.
+            *****************************************************/
+            function SanitizeUserInput($input)
+            {
+                // Dangerous words not allowed
+                $wordsNotAllowed = array("/delete/i", "/update/i","/union/i","/insert/i","/drop/i","/evil/i","/--/i");
+                // Remove dangerous words from first name
+                $input = preg_replace($wordsNotAllowed , "", $input);
+		        // Unfortunately escapeshellarg adds quotes around the first and last names.
+		        // $input = escapeshellarg($input);
+                // strip tags
+                $input = filter_var($input, FILTER_SANITIZE_STRING,FILTER_FLAG_ENCODE_AMP);
+                // strip slashes
+                $input = stripslashes($input);
+                return $input;
+            }
             // SQL query to fetch information of registerd users and finds user match.
             // add MD5 to pswd
             $sql = "SELECT user_level FROM admin_table WHERE user_name= '$username' AND
