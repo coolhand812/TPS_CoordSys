@@ -16,12 +16,6 @@
             $username=SanitizeUserInput($db, $_POST['username']);
             $password=SanitizeUserInput($db, $_POST['password']);
 
-            //check connection
-            if (mysqli_connect_error()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
-            }
-
             /*****************************************************
             * This function will sanitize user input
             * Specifically fields like first and last name
@@ -42,6 +36,13 @@
                 $input = stripslashes($input);
                 return $input;
             }
+
+            //check connection
+            if (mysqli_connect_error()) {
+                printf("Connect failed: %s\n", mysqli_connect_error());
+                exit();
+            }
+
             // SQL query to fetch information of registerd users and finds user match.
             // add MD5 to pswd
             $sql = "SELECT user_level FROM admin_table WHERE user_name= '$username' AND
