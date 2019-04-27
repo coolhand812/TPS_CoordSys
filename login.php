@@ -10,29 +10,8 @@
         else {
 
             // Define $username and $password with escape variables for security
-            $username=SanitizeUserInput($_POST['username']);
-            $password=SanitizeUserInput($_POST['password']);
-
-            /*****************************************************
-            * This function will sanitize user input
-            * Specifically fields like first and last name
-            * Even though these fields are restriced in size
-            * users can still enter dangerous text.
-            *****************************************************/
-            function SanitizeUserInput($input)
-            {
-                // Dangerous words not allowed
-                $wordsNotAllowed = array("/delete/i", "/update/i","/union/i","/insert/i","/drop/i","/evil/i","/--/i");
-                // Remove dangerous words from first name
-                $input = preg_replace($wordsNotAllowed , "", $input);
-		        // Unfortunately escapeshellarg adds quotes around the first and last names.
-		        // $input = escapeshellarg($input);
-                // strip tags
-                $input = filter_var($input, FILTER_SANITIZE_STRING,FILTER_FLAG_ENCODE_AMP);
-                // strip slashes
-                $input = stripslashes($input);
-                return $input;
-            }
+            $username=strip_tags($db,$_POST['username']);
+            $password=strip_tags($db,$_POST['password']);
 
             // Establishing Connection with Server by passing server_name, user_id and password as a parameter
             $db = new mysqli("localhost", "root", "", "ruxojo_accountsreceivable") OR die(mysql_error());
