@@ -10,8 +10,8 @@
         else {
 
             // Define $username and $password with escape variables for security
-            $username=SanitizeUserInput($db, $_POST['username']);
-            $password=SanitizeUserInput($db, $_POST['password']);
+            $username=SanitizeUserInput($_POST['username']);
+            $password=SanitizeUserInput($_POST['password']);
 
             /*****************************************************
             * This function will sanitize user input
