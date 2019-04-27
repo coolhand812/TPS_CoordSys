@@ -9,12 +9,12 @@
         }
         else {
 
+            // Establishing Connection with Server by passing server_name, user_id and password as a parameter
+            $db = new mysqli("localhost", "root", "", "ruxojo_accountsreceivable") OR die(mysql_error());
+            
             // Define $username and $password with escape variables for security
             $username=strip_tags($db,$_POST['username']);
             $password=strip_tags($db,$_POST['password']);
-
-            // Establishing Connection with Server by passing server_name, user_id and password as a parameter
-            $db = new mysqli("localhost", "root", "", "ruxojo_accountsreceivable") OR die(mysql_error());
 
             //check connection
             if (mysqli_connect_error()) {
