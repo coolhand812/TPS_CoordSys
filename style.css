@@ -123,6 +123,10 @@ h1,h2{
 	width: 50%;
 }
 
+.index-form.phone-group{
+	margin: 0 0 1rem 0;
+}
+
 #content{  /* buffer between upper main text and header */
 	padding: 10px;
 }
