@@ -75,8 +75,14 @@
 						</div>
 						<div class="phone-group">
 							<label>Phone Number: </label>
-							<input type="text" name="phone_number"/>
+							<input type="tel" name="phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
+							<span>Format: 123-456-7890</span>
 						</div>
+						<div class="form-group">
+                            <label>Date of Birth: </label>
+                            <input type="date" name="date_of_birth"/>	
+						</div>
+
 						<!--student school identification information-->
                         <div class="form-group">
                             <label>Start Date: </label>
