@@ -127,6 +127,13 @@ h1,h2{
 	margin: 0 0 1rem 0;
 }
 
+.currencyinput {
+    border: 1px inset #ccc;
+}
+.currencyinput input {
+    border: 0;
+}
+
 #content{  /* buffer between upper main text and header */
 	padding: 10px;
 }
