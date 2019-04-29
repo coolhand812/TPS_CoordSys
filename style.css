@@ -130,8 +130,15 @@ h1,h2{
 .currencyinput {
     border: 1px inset #ccc;
 }
+
+.currencyinput label{
+	display: block
+}
+
 .currencyinput input {
-    border: 0;
+	border: 2px;
+	padding: 8px;
+	width: 50%;
 }
 
 #content{  /* buffer between upper main text and header */
