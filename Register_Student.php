@@ -204,6 +204,11 @@
             }
         }
 
+        // No need to sanitize since it's a drop-down menu
+        if(isset($_POST["current_status"])){
+            $currentStatus = $_POST["current_status"];
+        }
+
         if(isset($_POST["notes"])){
             $notes = $_POST["notes"];
             $notes = SanitizeUserInput($notes);
