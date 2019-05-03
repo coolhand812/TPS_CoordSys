@@ -125,6 +125,17 @@
             }
         }
 
+        if (empty($_POST["e-mail"])){
+            $emailErr = "e-mail is required";
+            } else {
+            // check if name only contains e-mail characters
+            if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i",$email)){
+                $emailErr = "Only e-mail allowed"; 
+            }elseif(isset($_POST["e-mail"])){
+                $email = $_POST["e-mail"];
+            }
+        }
+
         
 
         if (empty($_POST["start_date"])){
