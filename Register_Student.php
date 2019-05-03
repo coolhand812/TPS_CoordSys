@@ -2,7 +2,8 @@
     // define variables and set to empty values
     $Student_ID = $firstName = $secondName = $patLName = $matLName = $firstNameErr = "";
     $startdate = $enddate = $facultyName = $learningProg = $notes = $Student_IDErr = "";
-    $secondNameErr = $patLNameErr = $matLNameErr = $startdateErr = $enddateErr = "";
+    $secondNameErr = $patLNameErr = $matLNameErr = $startdateErr = $enddateErr = $gender = "";
+    $dateofbirth = $dateofbirthErr = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -37,6 +38,30 @@
             }
         }
 
+        if (empty($_POST["PatLName"])){
+            $patLNameErr = "Paternal last name is required";
+            } else {
+            // check if name only contains letters and whitespace
+            if (!preg_match("/^[a-zA-Z ]*$/",$patLName)){
+                $patLNameErr = "Only letters and white space allowed"; 
+            }elseif(isset($_POST["PatLName"])){
+                $patLName = $_POST["PatLName"];
+                $patLName = SanitizeUserInput($patLName);
+            }
+        }
+
+        if (empty($_POST["MatLName"])){
+            $matLNameErr = "Maternal last name is required";
+            } else {
+            // check if name only contains letters and whitespace
+            if (!preg_match("/^[a-zA-Z ]*$/",$matLName)){
+                $matLNameErr = "Only letters and white space allowed"; 
+            }elseif(isset($_POST["MatLName"])){
+                $matLName = $_POST["MatLName"];
+                $matLName = SanitizeUserInput($matLName);
+            }
+        }
+
         if (empty($_POST["FName"])){
             $firstNameErr = "First name is required";
             } else {
@@ -61,27 +86,31 @@
             }
         }
 
-        if (empty($_POST["PatLName"])){
-            $patLNameErr = "Paternal last name is required";
-            } else {
-            // check if name only contains letters and whitespace
-            if (!preg_match("/^[a-zA-Z ]*$/",$patLName)){
-                $patLNameErr = "Only letters and white space allowed"; 
-            }elseif(isset($_POST["PatLName"])){
-                $patLName = $_POST["PatLName"];
-                $patLName = SanitizeUserInput($patLName);
-            }
+        // No need to sanitize since it's a drop-down menu
+        if(isset($_POST["gender"])){
+            $gender = $_POST["gender"];
         }
         
-        if (empty($_POST["MatLName"])){
-            $matLNameErr = "Maternal last name is required";
+        if (empty($_POST["date_of_birth"])){
+            $dateofbirthErr = "Date of birth is required";
+            } else {
+            // check if date only contains numbers and fwd slash
+            if (!preg_match("/^[^0-9/]*$/",$dateofbirth)){
+                $dateofbirthErr = "Only numbers and fwd slash allowed"; 
+            }elseif(isset($_POST["date_of_birth"])){
+                $dateofbirth = $_POST["date_of_birth"];
+            }
+        }
+
+        if (empty($_POST["SName"])){
+            $secondNameErr = "Second name is required";
             } else {
             // check if name only contains letters and whitespace
-            if (!preg_match("/^[a-zA-Z ]*$/",$matLName)){
-                $matLNameErr = "Only letters and white space allowed"; 
-            }elseif(isset($_POST["MatLName"])){
-                $matLName = $_POST["MatLName"];
-                $matLName = SanitizeUserInput($matLName);
+            if (!preg_match("/^[a-zA-Z ]*$/",$secondName)){
+                $secondNameErr = "Only letters and white space allowed"; 
+            }elseif(isset($_POST["SName"])){
+                $secondName = $_POST["SName"];
+                $secondName = SanitizeUserInput($secondName);
             }
         }
 
