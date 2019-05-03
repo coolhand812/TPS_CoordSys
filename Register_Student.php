@@ -148,8 +148,6 @@
             }
         }
         
-        
-
         if (empty($_POST["start_date"])){
             $startdateErr = "Start date is required";
             } else {
@@ -180,6 +178,18 @@
         // No need to sanitize since it's a drop-down menu
         if(isset($_POST["learning_prog"])){
             $learningProg = $_POST["learning_prog"];
+        }
+
+        if (empty($_POST["TOEFL_score"])){
+            $toeflScoreErr = "TOEFL score is required";
+            } else {
+            // check if name only contains numbers
+            if (!preg_match("/^[1-9][0-9]{0,3}$/",$toeflScore)){
+                $toeflScoreErr = "Only numbers are allowed"; 
+            }elseif(isset($_POST["TOEFL_score"])){
+                $toeflScore = $_POST["TOEFL_score"];
+                $toeflScore = SanitizeUserInput($toeflScore);
+            }
         }
 
         if(isset($_POST["notes"])){
