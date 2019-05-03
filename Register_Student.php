@@ -260,10 +260,12 @@
 			die("Connection failed: " . mysqli_connect_error());
 		}
 		echo "<b>Connection to MySQL DB established!</b> <br>";
-		$sql = "INSERT INTO Student_Table (Student_ID, last_name1, last_name2, first_name, middle_name,
-         start_date, prosp_end_date, faculty_name, learning_prog, notes)
-		VALUES ('$Student_ID', '$patLName', '$matLName', '$firstName', '$secondName', '$startdate',
-         '$enddate', '$facultyName', '$learningProg', '$notes')";
+		$sql = "INSERT INTO Student_Table (Student_ID, last_name1, last_name2, first_name, middle_name, gender,
+        date_of_birth, phone_number, facebook, e-mail, generation, start_date, prosp_end_date, faculty_name,
+        learning_prog, TOEFL_score, CityU_Student_ID, current_status, notes)
+		VALUES ('$Student_ID', '$patLName', '$matLName', '$firstName', '$secondName', '$gender', '$dateofbirth',
+        '$phoneNumber', '$facebook', '$email', '$generation', '$startdate', '$enddate', '$facultyName',
+        '$learningProg', '$toeflScore', '$cityUstudentID', '$currentStatus', '$notes')";
 						
 		echo "SQL Statement: $sql <br><br>";
 		if ($conn->query($sql) === TRUE)
