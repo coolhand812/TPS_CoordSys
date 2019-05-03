@@ -1,9 +1,10 @@
 <?php
     // define variables and set to empty values
-    $Student_ID = $firstName = $secondName = $patLName = $matLName = $firstNameErr = "";
-    $startdate = $enddate = $facultyName = $learningProg = $notes = $Student_IDErr = "";
-    $secondNameErr = $patLNameErr = $matLNameErr = $startdateErr = $enddateErr = $gender = "";
-    $dateofbirth = $dateofbirthErr = "";
+    $Student_ID = $Student_IDErr = $patLName = $patLNameErr = $matLName = $matLNameErr = $firstName = $firstNameErr = "";
+    $secondName = $secondNameErr = $gender = $dateofbirth = $dateofbirthErr = $phoneNumber = $phoneNumberErr = "";
+    $facebook = $facebookErr = $email = $emailErr = $generation = $generationErr = $startdate = $startdateErr = "";
+    $enddate = $enddateErr = $facultyName = $learningProg = $toeflScore = $toeflScoreErr = $notes = "";
+    $cityUstudentID = $cityUstudentIDErr = $currentStatus = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -110,6 +111,17 @@
                 $phoneNumberErr = "Only phone numbers allowed"; 
             }elseif(isset($_POST["phone_number"])){
                 $phoneNumber = $_POST["phone_number"];
+            }
+        }
+
+        if (empty($_POST["facebook"])){
+            $facebookErr = "Facebook name is required";
+            } else {
+            // check if name only contains alphanumeric & underscore
+            if (!preg_match("/^[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)*$/",$facebook)){
+                $facebookErr = "Only alphanumeric and underscore allowed"; 
+            }elseif(isset($_POST["facebook"])){
+                $facebook = $_POST["facebook"];
             }
         }
 
