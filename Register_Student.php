@@ -271,11 +271,11 @@
     echo "</br></br>";
     CreateMySQLUser($Student_ID, $patLName, $matLName, $firstName, $secondName, $gender, $dateofbirth, 
     $phoneNumber, $facebook, $email, $generation, $startdate, $enddate, $facultyName, $learningProg,
-    $toeflScore, $cityUstudentID, $currentStatus, $notes);
+    $toeflScore, $cityUstudentID, $currentStatus, $amttopay, $numofpmts, $pmtmethod, $notes);
 						
 	function CreateMySQLUser($Student_ID, $patLName, $matLName, $firstName, $secondName, $gender, $dateofbirth, 
     $phoneNumber, $facebook, $email, $generation, $startdate, $enddate, $facultyName, $learningProg,
-    $toeflScore, $cityUstudentID, $currentStatus, $notes)
+    $toeflScore, $cityUstudentID, $currentStatus, $amttopay, $numofpmts, $pmtmethod, $notes)
 	{
 		echo "<b>Creating Student Record: <i> $Student_ID $patLName $matLName $firstName </i></b><br>";
 		
