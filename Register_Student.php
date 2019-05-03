@@ -136,6 +136,18 @@
             }
         }
 
+        if (empty($_POST["generation"])){
+            $generationErr = "Generation is required";
+            } else {
+            // check if name only contains numbers
+            if (!preg_match("/^[1-9][0-9]{0,4}$/",$generation)){
+                $generationErr = "Only numbers are allowed"; 
+            }elseif(isset($_POST["generation"])){
+                $generation = $_POST["generation"];
+                $generation = SanitizeUserInput($generation);
+            }
+        }
+        
         
 
         if (empty($_POST["start_date"])){
