@@ -192,6 +192,18 @@
             }
         }
 
+        if (empty($_POST["CityU_Student_ID"])){
+            $cityUstudentIDErr = "CityU Student ID is required";
+            } else {
+            // check if name only contains numbers
+            if (!preg_match("/^[1-9][0-9]{0,15}$/",$cityUstudentID)){
+                $cityUstudentIDErr = "Only numbers are allowed"; 
+            }elseif(isset($_POST["CityU_Student_ID"])){
+                $cityUstudentID = $_POST["CityU_Student_ID"];
+                $cityUstudentID = SanitizeUserInput($cityUstudentID);
+            }
+        }
+
         if(isset($_POST["notes"])){
             $notes = $_POST["notes"];
             $notes = SanitizeUserInput($notes);
