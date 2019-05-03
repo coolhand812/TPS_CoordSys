@@ -102,17 +102,18 @@
             }
         }
 
-        if (empty($_POST["SName"])){
-            $secondNameErr = "Second name is required";
+        if (empty($_POST["phone_number"])){
+            $phoneNumberErr = "Phone number is required";
             } else {
-            // check if name only contains letters and whitespace
-            if (!preg_match("/^[a-zA-Z ]*$/",$secondName)){
-                $secondNameErr = "Only letters and white space allowed"; 
-            }elseif(isset($_POST["SName"])){
-                $secondName = $_POST["SName"];
-                $secondName = SanitizeUserInput($secondName);
+            // check if phone number contains numbers, dashes, and parentheses
+            if (!preg_match("/\(\d{3}\)\d{3}-\d{4}/",$phoneNumber)){
+                $phoneNumberErr = "Only phone numbers allowed"; 
+            }elseif(isset($_POST["phone_number"])){
+                $phoneNumber = $_POST["phone_number"];
             }
         }
+
+        
 
         if (empty($_POST["start_date"])){
             $startdateErr = "Start date is required";
