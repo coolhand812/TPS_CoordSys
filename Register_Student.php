@@ -242,13 +242,15 @@
     }
 
     echo "</br></br>";
-    CreateMySQLUser($Student_ID, $patLName, $matLName, $firstName, $secondName, $startdate,
-     $enddate, $facultyName, $learningProg, $notes);
+    CreateMySQLUser($Student_ID, $patLName, $matLName, $firstName, $secondName, $gender, $dateofbirth, 
+    $phoneNumber, $facebook, $email, $generation, $startdate, $enddate, $facultyName, $learningProg,
+    $toeflScore, $cityUstudentID, $currentStatus, $notes);
 						
-	function CreateMySQLUser($Student_ID, $patLName, $matLName, $firstName, $secondName, $startdate,
-    $enddate, $facultyName, $learningProg, $notes)
+	function CreateMySQLUser($Student_ID, $patLName, $matLName, $firstName, $secondName, $gender, $dateofbirth, 
+    $phoneNumber, $facebook, $email, $generation, $startdate, $enddate, $facultyName, $learningProg,
+    $toeflScore, $cityUstudentID, $currentStatus, $notes)
 	{
-		echo "<b>Creating Student Record: <i> $Student_ID $patLName $matLName </i></b><br>";
+		echo "<b>Creating Student Record: <i> $Student_ID $patLName $matLName $firstName </i></b><br>";
 		
 		//make connection	
 		$conn = new mysqli("localhost", "root", "", "ruxojo_accountsreceivable") OR die(mysql_error());
