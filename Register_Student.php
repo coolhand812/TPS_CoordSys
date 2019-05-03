@@ -4,7 +4,7 @@
     $secondName = $secondNameErr = $gender = $dateofbirth = $dateofbirthErr = $phoneNumber = $phoneNumberErr = "";
     $facebook = $facebookErr = $email = $emailErr = $generation = $generationErr = $startdate = $startdateErr = "";
     $enddate = $enddateErr = $facultyName = $learningProg = $toeflScore = $toeflScoreErr = $notes = "";
-    $cityUstudentID = $cityUstudentIDErr = $currentStatus = "";
+    $cityUstudentID = $cityUstudentIDErr = $currentStatus = $amttopay = $amttopayErr = $numofpmts = $numofpmtsErr = $pmtmethod = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -207,6 +207,33 @@
         // No need to sanitize since it's a drop-down menu
         if(isset($_POST["current_status"])){
             $currentStatus = $_POST["current_status"];
+        }
+
+        if (empty($_POST["amt_to_pay"])){
+            $amttopayErr = "amount to pay is required";
+            } else {
+            // check if name only contains numbers, periods, and commas
+            if (!preg_match("^((?:\d\.\d{3}\.|\d{1,3}\.)?\d{1,3},\d{1,2})$",$amttopay)){
+                $amttopayErr = "Only currency is allowed"; 
+            }elseif(isset($_POST["amt_to_pay"])){
+                $amttopay = $_POST["amt_to_pay"];
+            }
+        }
+
+        if (empty($_POST["num_of_pmts"])){
+            $numofpmtsErr = "number of payments is required";
+            } else {
+            // check if name only contains numbers, periods, and commas
+            if (!preg_match("^((?:\d\.\d{3}\.|\d{1,3}\.)?\d{1,3},\d{1,2})$",$numofpmts)){
+                $numofpmtsErr = "Only currency is allowed"; 
+            }elseif(isset($_POST["num_of_pmts"])){
+                $numofpmts = $_POST["num_of_pmts"];
+            }
+        }
+
+        // No need to sanitize since it's a drop-down menu
+        if(isset($_POST["pmt_method"])){
+            $pmtmethod = $_POST["pmt_method"];
         }
 
         if(isset($_POST["notes"])){
