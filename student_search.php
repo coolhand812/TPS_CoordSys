@@ -8,7 +8,7 @@
             echo $patLName;    // displays message if field is empty     
         }
         else {
-            // Define Student ID with escape variables for security
+            // Define last names with escape variables for security
             if (!preg_match("/^[a-zA-Z ]*$/",$patLName)){
                 $patLNameErr = "Only letters and white space allowed"; 
             }elseif(isset($_POST["PatLName"])){
@@ -31,12 +31,12 @@
             
             // SQL query to fetch information of registerd users and finds user match.
             // add MD5 to pswd
-            $sql = "SELECT student_ID FROM student_table WHERE student_ID = $Student_ID";
+            $sql = "SELECT last_name1 FROM student_table WHERE last_name1 = $patLName";
 
             if($db->query($sql) === false)
 			{ 
 				// row not found, do stuff...
-				echo "<b>Student ID not found</b><br>";
+				echo "<b>Last name not found</b><br>";
 			} else {
 				// row found, do other stuff...
                 $result = mysqli_query($db,$sql); // gives the query result and assigns it to a variable
