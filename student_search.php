@@ -1,19 +1,29 @@
 <?php
     //variables
-    $Student_IDErr = "";
+    $patLName = $patLNameErr = $matLName = $matLNameErr = "";
 
     if (isset($_POST['submit'])) {      // Verifies submit was selected
-        if (empty($_POST['Student_ID'])) {   //checks field is not empty
-            $error = "Student ID cannot be empty";
-            echo $error;    // displays message if field is empty     
+        if (empty($_POST['last_name1'])) {   //checks field is not empty
+            $patLNameErr = "Paternal Last Name cannot be empty";
+            echo $patLName;    // displays message if field is empty     
         }
         else {
             // Define Student ID with escape variables for security
-            if (!preg_match("/^[1-9][0-9]{0,15}$/",$Student_ID)){
-                $Student_IDErr = "Only numbers are allowed"; 
-            }elseif(isset($_POST["Student_ID"])){
-                $Student_ID = $_POST["Student_ID"];
-                $Student_ID = SanitizeUserInput($Student_ID);
+            if (!preg_match("/^[a-zA-Z ]*$/",$patLName)){
+                $patLNameErr = "Only letters and white space allowed"; 
+            }elseif(isset($_POST["PatLName"])){
+                $patLName = $_POST["PatLName"];
+            }
+
+            if (empty($_POST["MatLName"])){
+                $matLNameErr = "Maternal last name is required";
+                } else {
+                // check if name only contains letters and whitespace
+                if (!preg_match("/^[a-zA-Z ]*$/",$matLName)){
+                    $matLNameErr = "Only letters and white space allowed"; 
+                }elseif(isset($_POST["MatLName"])){
+                    $matLName = $_POST["MatLName"];
+                }
             }
             
             // Establishing Connection with Server by passing server_name, user_id and password as a parameter
