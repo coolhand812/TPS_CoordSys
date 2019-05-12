@@ -189,11 +189,10 @@
             $cityUstudentIDErr = "CityU Student ID is required";
             } else {
             // check if name only contains numbers
-            if (!preg_match("/^[1-9][0-9]{0,15}$/",$cityUstudentID)){
+            if (!preg_match("/^[0-9]{0,7}$/",$cityUstudentID)){
                 $cityUstudentIDErr = "Only numbers are allowed"; 
             }elseif(isset($_POST["CityU_Student_ID"])){
                 $cityUstudentID = $_POST["CityU_Student_ID"];
-                echo $cityUstudentID;
             }
         }
 
