@@ -144,7 +144,6 @@
                 $generationErr = "Only numbers are allowed"; 
             }elseif(isset($_POST["generation"])){
                 $generation = $_POST["generation"];
-                $generation = SanitizeUserInput($generation);
             }
         }
         
@@ -188,7 +187,6 @@
                 $toeflScoreErr = "Only numbers are allowed"; 
             }elseif(isset($_POST["TOEFL_score"])){
                 $toeflScore = $_POST["TOEFL_score"];
-                $toeflScore = SanitizeUserInput($toeflScore);
             }
         }
 
@@ -200,7 +198,6 @@
                 $cityUstudentIDErr = "Only numbers are allowed"; 
             }elseif(isset($_POST["CityU_Student_ID"])){
                 $cityUstudentID = $_POST["CityU_Student_ID"];
-                $cityUstudentID = SanitizeUserInput($cityUstudentID);
             }
         }
 
