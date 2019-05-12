@@ -106,6 +106,7 @@
                 $phoneNumberErr = "Only phone numbers allowed"; 
             }elseif(isset($_POST["phone_number"])){
                 $phoneNumber = $_POST["phone_number"];
+                echo $phoneNumber;
             }
         }
 
@@ -117,6 +118,7 @@
                 $facebookErr = "Only alphanumeric and underscore allowed"; 
             }elseif(isset($_POST["facebook"])){
                 $facebook = $_POST["facebook"];
+                echo $facebook;
             }
         }
 
@@ -128,6 +130,7 @@
                 $emailErr = "Only e-mail allowed"; 
             }elseif(isset($_POST["e-mail"])){
                 $email = $_POST["e-mail"];
+                echo $email;
             }
         }
 
@@ -139,6 +142,7 @@
                 $generationErr = "Only numbers are allowed"; 
             }elseif(isset($_POST["generation"])){
                 $generation = $_POST["generation"];
+                echo $generation;
             }
         }
         
@@ -182,6 +186,7 @@
                 $toeflScoreErr = "Only numbers are allowed"; 
             }elseif(isset($_POST["TOEFL_score"])){
                 $toeflScore = $_POST["TOEFL_score"];
+                echo $toeflScore;
             }
         }
 
@@ -193,6 +198,7 @@
                 $cityUstudentIDErr = "Only numbers are allowed"; 
             }elseif(isset($_POST["CityU_Student_ID"])){
                 $cityUstudentID = $_POST["CityU_Student_ID"];
+                echo $cityUstudentID;
             }
         }
 
