@@ -138,7 +138,7 @@
             $generationErr = "Generation is required";
             } else {
             // check if name only contains numbers
-            if (!preg_match("/^[1-9][0-9]{0,4}$/",$generation)){
+            if (!preg_match("/^[1-9][0-9]{0,3}$/",$generation)){
                 $generationErr = "Only numbers are allowed"; 
             }elseif(isset($_POST["generation"])){
                 $generation = $_POST["generation"];
