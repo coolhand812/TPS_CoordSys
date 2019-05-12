@@ -35,7 +35,6 @@
                 $Student_IDErr = "Only numbers are allowed"; 
             }elseif(isset($_POST["Student_ID"])){
                 $Student_ID = $_POST["Student_ID"];
-                $Student_ID = SanitizeUserInput($Student_ID);
             }
         }
 
@@ -47,7 +46,6 @@
                 $patLNameErr = "Only letters and white space allowed"; 
             }elseif(isset($_POST["PatLName"])){
                 $patLName = $_POST["PatLName"];
-                $patLName = SanitizeUserInput($patLName);
             }
         }
 
@@ -59,7 +57,6 @@
                 $matLNameErr = "Only letters and white space allowed"; 
             }elseif(isset($_POST["MatLName"])){
                 $matLName = $_POST["MatLName"];
-                $matLName = SanitizeUserInput($matLName);
             }
         }
 
@@ -71,7 +68,6 @@
                 $firstNameErr = "Only letters and white space allowed"; 
             }elseif(isset($_POST["FName"])){
                 $firstName = $_POST["FName"];
-                $firstName = SanitizeUserInput($firstName);
             }
         }
 
@@ -83,7 +79,6 @@
                 $secondNameErr = "Only letters and white space allowed"; 
             }elseif(isset($_POST["SName"])){
                 $secondName = $_POST["SName"];
-                $secondName = SanitizeUserInput($secondName);
             }
         }
 
