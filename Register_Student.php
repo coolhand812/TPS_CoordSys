@@ -102,11 +102,10 @@
             $phoneNumberErr = "Phone number is required";
             } else {
             // check if phone number contains numbers, dashes, and parentheses
-            if (!preg_match("/\(\d{3}\)\d{3}-\d{4}/",$phoneNumber)){
+            if (!preg_match("/^[0-9\-]*$/",$phoneNumber)){
                 $phoneNumberErr = "Only phone numbers allowed"; 
             }elseif(isset($_POST["phone_number"])){
                 $phoneNumber = $_POST["phone_number"];
-                echo $phoneNumber;
             }
         }
 
@@ -114,7 +113,7 @@
             $facebookErr = "Facebook name is required";
             } else {
             // check if name only contains alphanumeric & underscore
-            if (!preg_match("/^[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)*$/",$facebook)){
+            if (!preg_match("/^[A-Za-z0-9_\-]*$/",$facebook)){
                 $facebookErr = "Only alphanumeric and underscore allowed"; 
             }elseif(isset($_POST["facebook"])){
                 $facebook = $_POST["facebook"];
