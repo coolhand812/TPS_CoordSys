@@ -96,7 +96,7 @@
             $dateofbirthErr = "Date of birth is required";
             } else {
             // check if date only contains numbers and fwd slash
-            if (!preg_match("/^[^0-9/]*$/",$dateofbirth)){
+            if (!preg_match("/^[0-9/]*$/",$dateofbirth)){
                 $dateofbirthErr = "Only numbers and fwd slash allowed"; 
             }elseif(isset($_POST["date_of_birth"])){
                 $dateofbirth = $_POST["date_of_birth"];
@@ -152,7 +152,7 @@
             $startdateErr = "Start date is required";
             } else {
             // check if date only contains numbers and fwd slash
-            if (!preg_match("/^[^0-9/]*$/",$startdate)){
+            if (!preg_match("/^[0-9/]*$/",$startdate)){
                 $startdateErr = "Only numbers and fwd slash allowed"; 
             }elseif(isset($_POST["start_date"])){
                 $startdate = $_POST["start_date"];
@@ -163,7 +163,7 @@
             $enddateErr = "End date is required";
             } else {
             // check if date only contains numbers and fwd slash
-            if (!preg_match("/^[^0-9/]*$/",$enddate)){
+            if (!preg_match("/^[0-9/]*$/",$enddate)){
                 $enddateErr = "Only numbers and fwd slash allowed"; 
             }elseif(isset($_POST["prosp_end_date"])){
                 $enddate = $_POST["prosp_end_date"];
@@ -213,7 +213,7 @@
             $amttopayErr = "amount to pay is required";
             } else {
             // check if name only contains numbers, periods, and commas
-            if (!preg_match("^((?:\d\.\d{3}\.|\d{1,3}\.)?\d{1,3},\d{1,2})$",$amttopay)){
+            if (!preg_match("^((?:\d\.\d{3}\.|\d{1,3}\.)?\d{1,3},\d{1,2})$^",$amttopay)){
                 $amttopayErr = "Only currency is allowed"; 
             }elseif(isset($_POST["amt_to_pay"])){
                 $amttopay = $_POST["amt_to_pay"];
@@ -224,7 +224,7 @@
             $numofpmtsErr = "number of payments is required";
             } else {
             // check if name only contains numbers, periods, and commas
-            if (!preg_match("^((?:\d\.\d{3}\.|\d{1,3}\.)?\d{1,3},\d{1,2})$",$numofpmts)){
+            if (!preg_match("^((?:\d\.\d{3}\.|\d{1,3}\.)?\d{1,3},\d{1,2})$^",$numofpmts)){
                 $numofpmtsErr = "Only currency is allowed"; 
             }elseif(isset($_POST["num_of_pmts"])){
                 $numofpmts = $_POST["num_of_pmts"];
