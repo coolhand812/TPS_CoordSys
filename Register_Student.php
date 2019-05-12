@@ -117,7 +117,6 @@
                 $facebookErr = "Only alphanumeric and underscore allowed"; 
             }elseif(isset($_POST["facebook"])){
                 $facebook = $_POST["facebook"];
-                echo $facebook;
             }
         }
 
@@ -125,7 +124,7 @@
             $emailErr = "e-mail is required";
             } else {
             // check if name only contains e-mail characters
-            if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i",$email)){
+            if (!preg_match("/^[A-Z_a-z0-9\-\@\.]*$/",$email)){
                 $emailErr = "Only e-mail allowed"; 
             }elseif(isset($_POST["e-mail"])){
                 $email = $_POST["e-mail"];
