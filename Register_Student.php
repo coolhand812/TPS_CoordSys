@@ -128,7 +128,6 @@
                 $emailErr = "Only e-mail allowed"; 
             }elseif(isset($_POST["e-mail"])){
                 $email = $_POST["e-mail"];
-                echo $email;
             }
         }
 
@@ -136,11 +135,10 @@
             $generationErr = "Generation is required";
             } else {
             // check if name only contains numbers
-            if (!preg_match("/^[1-9][0-9]{0,3}$/",$generation)){
+            if (!preg_match("/^[1-9]{0,3}$/",$generation)){
                 $generationErr = "Only numbers are allowed"; 
             }elseif(isset($_POST["generation"])){
                 $generation = $_POST["generation"];
-                echo $generation;
             }
         }
         
@@ -180,11 +178,10 @@
             $toeflScoreErr = "TOEFL score is required";
             } else {
             // check if name only contains numbers
-            if (!preg_match("/^[1-9][0-9]{0,3}$/",$toeflScore)){
+            if (!preg_match("/^[1-9]{0,2}$/",$toeflScore)){
                 $toeflScoreErr = "Only numbers are allowed"; 
             }elseif(isset($_POST["TOEFL_score"])){
                 $toeflScore = $_POST["TOEFL_score"];
-                echo $toeflScore;
             }
         }
 
