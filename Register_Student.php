@@ -283,9 +283,9 @@
 		$sql = "INSERT INTO student_table (Student_ID, last_name1, last_name2, first_name, middle_name, gender,
         date_of_birth, phone_number, facebook, e-mail, generation, start_date, prosp_end_date, faculty_name,
         learning_prog, TOEFL_score, CityU_Student_ID, current_status, notes)
-		VALUES ('$Student_ID', '$patLName', '$matLName', '$firstName', '$secondName', '$gender', '$dateofbirth',
-        '$phoneNumber', '$facebook', '$email', '$generation', '$startdate', '$enddate', '$facultyName',
-        '$learningProg', '$toeflScore', '$cityUstudentID', '$currentStatus', '$notes')";
+		VALUES ('$Student_ID', '$patLName', '$matLName', '$firstName', '$secondName', '$gender', '$dateofbirth'
+        , '$phoneNumber', '$facebook', '$email', '$generation', '$startdate', '$enddate', '$facultyName'
+        , '$learningProg', '$toeflScore', '$cityUstudentID', '$currentStatus', '$notes')";
 
         $sql1 = "INSERT INTO payments_table (amt_to_pay, num_of_pmts, pmt_method)
         VALUES ('$amttopay', '$numofpmts', '$pmtmethod')";
