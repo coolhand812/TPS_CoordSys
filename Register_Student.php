@@ -288,8 +288,8 @@
         , '$phoneNumber', '$facebook', '$email', '$generation', '$startdate', '$enddate', '$facultyName'
         , '$learningProg', '$toeflScore', '$cityUstudentID', '$currentStatus', '$notes')";
 
-        $sql1 = "INSERT INTO payments_table (amt_to_pay, num_of_pmts, pmt_method)
-        VALUES ('$amttopay', '$numofpmts', '$pmtmethod')";
+        $sql1 = "INSERT INTO payments_table (Student_ID, amt_to_pay, num_of_pmts, pmt_method)
+        VALUES ('$Student_ID', '$amttopay', '$numofpmts', '$pmtmethod')";
 
 		//echo "SQL Statement: $sql <br><br>";
 		if ($conn->query($sql) === TRUE)
