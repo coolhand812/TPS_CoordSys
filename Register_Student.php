@@ -291,15 +291,24 @@
         $sql1 = "INSERT INTO payments_table (amt_to_pay, num_of_pmts, pmt_method)
         VALUES ('$amttopay', '$numofpmts', '$pmtmethod')";
 
-		echo "SQL Statement: $sql <br><br>";
-		if ($conn->query($sql) === TRUE && $conn->query($sql1) === TRUE)
+		//echo "SQL Statement: $sql <br><br>";
+		if ($conn->query($sql) === TRUE)
 		{
-			echo "<b>New record created successfully</b><br>";
+			echo "<b>student personal record created successfully</b><br>";
 		}
 		else
 		{
 			echo "Error: " . $sql . "<br>" . $conn->error;
-		}				
+        }
+        
+        if ($conn->query($sql1) === TRUE)
+		{
+			echo "<b>student financial record created successfully</b><br>";
+		}
+		else
+		{
+			echo "Error: " . $sql . "<br>" . $conn->error;
+		}
 		$conn->close();
 	}
 ?>
