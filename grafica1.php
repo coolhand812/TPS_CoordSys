@@ -1,7 +1,7 @@
 <?php
-    include('jpgraph.php');
-    include('jpgraph_pie.php');
-    include('jpgraph_pie3d.php');
+    include 'jpgraph.php';
+    include 'jpgraph_pie.php';
+    include 'jpgraph_pie3d.php';
 
     // Some dat
     $ydata = array(11.5,3,8,12,5,1,9,13,5,7);
