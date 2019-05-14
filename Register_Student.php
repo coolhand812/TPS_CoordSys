@@ -277,7 +277,8 @@
 		if (!$conn)
 		{
 			die("Connection failed: " . mysqli_connect_error());
-		}
+        }
+        
         echo "<b>Connection to MySQL DB established!</b> <br>";
         
 		$sql = "INSERT INTO student_table (Student_ID, last_name1, last_name2, first_name, middle_name, gender,
