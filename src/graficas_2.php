@@ -2,10 +2,10 @@
     include ('jpgraph.php');
     include ('jpgraph_line.php');
 
-    $datay1 = array(10,12,12,15,15,15,17,17,16,16,16);       //BAAP
+    $datay1 = array(10,12,12,15,15,15,17,17,16,16,16);      //BAAP
     $datay2 = array(12,10,12,11,15,17,15,17,19,21,18,16);   //BAM
     $datay3 = array(3,3,3,3,3,3,1,1,1,1,1,1);               //BSAC
-    $datay4 = array(5,17,32,24,4,2,36,2,9,24,21,23);        //BSBA
+    $datay4 = array(19,19,22,24,24,25,20,20,20,22,22,23);   //BSBA
 
     // Setup the graph
     $graph = new Graph(900,350);
