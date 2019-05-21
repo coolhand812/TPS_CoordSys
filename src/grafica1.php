@@ -4,7 +4,7 @@
     include 'jpgraph_pie3d.php';
 
     // Some dat
-    $ydata = array(11.5,3,8,12,5,1,9,13,5,7);
+    $ydata = array(47,47,52,56,60,63,56,58,59,61,58,59);
 
     // Create the graph. These two calls are always required
     $graph = new PieGraph(450,250,"auto");
