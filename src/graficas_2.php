@@ -2,9 +2,9 @@
     include ('jpgraph.php');
     include ('jpgraph_line.php');
 
-    $datay1 = array(10,12,12,15,15,15,17,17,16,16,16);      //BAAP
+    $datay1 = array(10,12,12,15,15,15,17,17,16,16,16,18);      //BAAP
     $datay2 = array(12,10,12,11,15,17,15,17,19,21,18,16);   //BAM
-    $datay3 = array(3,3,3,3,3,3,1,1,1,1,1,1);               //BSAC
+    $datay3 = array(6,6,6,6,6,6,4,4,4,2,2,2);               //BSAC
     $datay4 = array(19,19,22,24,24,25,20,20,20,22,22,23);   //BSBA
 
     // Setup the graph
@@ -55,7 +55,7 @@
     $p4->SetLegend('B.S. in Business Admin.');
 
     $graph->legend->SetFrameWeight(1);      // Sets value for box width
-    $graph->Legend->Pos(center, bottom);    // Sets legend position
+    //$graph->Legend->Pos(center, bottom);    // Sets legend position
 
     // Output line
     $graph->Stroke();
